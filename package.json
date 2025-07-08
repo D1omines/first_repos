@@ -1,0 +1,16 @@
+{
+  "name": "finance-trecker",
+  "version": "1.0.0",
+  
+  "scripts": {
+    "start" : "parcel index.html --open",
+    "build" : "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
