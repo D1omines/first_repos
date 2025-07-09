@@ -34,6 +34,7 @@ const komment = document.querySelector('#komment')
 function Init(){
     loadTransactionFromLocal() 
     loadCategoryesFromLocal()
+    checkTransactionTitleRender()
 
 }
 
@@ -45,11 +46,11 @@ function formEvent(event){
 
 
 function addOperation(){     
-    createOperation(typeSelect.value, amount.value, category.value, komment.value)   
+    createOperation(typeSelect.value, Number(amount.value), category.value, komment.value)   
             
     sendRenderOperation()
-
-    renderCategorys(getCategorys())    
+    renderCategorys(getCategorys())  
+    checkTransactionTitleRender()  
     
     
     
@@ -100,31 +101,22 @@ function modalClose(){
 }
 
 function modalSave(){    
-    const idModal = document.querySelector(`.modal__card-container-titleId`).innerText
-    const categoryModal = document.querySelector(`.modal__card-container-data-category-input`).value
-    const amountModal = document.querySelector(`.modal__card-container-data-operation-input`).value
-    const dateModal = document.querySelector(`.modal__card-container-data-date-input`).value
+    const idModal = document.querySelector(`.modal__card-container-titleId`).innerText   
+    const amountModal = document.querySelector(`.modal__card-container-data-operation-input`).value    
     const kommentModal = document.querySelector(`.modal__card-container-data-komment-input`).value
 
-    const li = document.querySelector(`li[data-id="${idModal}"`)
+    const li = document.querySelector(`li[data-id="${idModal}"`)    
+    const liPrice = li.querySelector('.transactions__text-price')   
     
-    const liPrice = li.querySelector('.transactions__text-price')
-    const liCat = li.querySelector('.transactions__text-category')
-    const liDate = li.querySelector('.transactions__text-date')
-    
-    liPrice.innerText = amountModal
-    liCat.innerText = categoryModal
-    liDate.innerText = dateModal  
+    liPrice.innerText = amountModal 
 
     
     const transaction = getAllTransaction()
     const cat = getCategorys()
 
     transaction.forEach(el => {
-        if(Number(el.id) === Number(idModal)){
-            el.category = categoryModal
-            el.amount = amountModal
-            el.date = dateModal
+        if(Number(el.id) === Number(idModal)){            
+            el.amount = amountModal            
             el.komment = kommentModal 
 
             if(el.type === 'expense'){                
@@ -210,11 +202,10 @@ function sendRenderOperation(){
     const op = getAllTransaction()  
     
     clearRenderTransaction()
-    renderTransaction(op, onOpenTransaction, onDeleteTransaction)
-
-      
+    renderTransaction(op, onOpenTransaction, onDeleteTransaction)      
     
     renderBalance(op)
+    checkTransactionTitleRender()
     
 }
 
@@ -233,5 +224,24 @@ function loadCategoryesFromLocal(){
     const categoryes = loadCategoryes()
     setCategoryes(categoryes)
     renderCategorys(categoryes)
+}
+
+function checkTransactionTitleRender(){
+    const p = document.querySelector('.operation-title-null')
+    const pCat = document.querySelector('.categoryes-title-null')
+
+    const transaction = getAllTransaction()   
+    const category = getCategorys()
+
+    if(transaction.length != 0) p.style.display = 'none'
+    else p.style.display = 'block'
+
+    if(category.length != 0) pCat.style.display = 'none'
+    else pCat.style.display = 'block'
+
+
+
+
+    
 }
 

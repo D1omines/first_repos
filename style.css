@@ -5,6 +5,16 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 body {
   background-color: #f8f9fa;
   padding: 2rem;
@@ -123,6 +133,12 @@ h1 {
   font-weight: bold;
 }
 
+.info-title-null{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 17px;
+}
+
 .modal__card{
   position: fixed;
   z-index: 100;
@@ -184,8 +200,87 @@ h1 {
   cursor: pointer;
 }
 
-
-
 .modal__card-hiden{
   display: none;
+}
+
+@media (max-width: 1300px){
+
+  .modal__card-container{
+    height: 45%;
+  }
+
+  .modal__card-container-data{
+    flex-wrap: wrap;
+  }
+
+  .modal__card-container-data-komment-text{
+    padding-top: 25px;
+  }
+}
+
+@media (max-width: 974px){
+  .modal__card-container-data-date-text{
+    padding-top: 25px;
+  }
+}
+
+@media (max-width: 650px){
+  .modal__card-container{    
+    margin-top: 90px;
+  }
+  .media-padding{
+    padding-top: 25px;
+  }
+
+  .modal__card-container{
+    height: 512px;
+  }
+}
+
+@media (max-width: 606px){
+  .form__btn{
+    width: 100%;
+  }
+}
+
+@media (max-width: 549px){
+  .modal__card-container{
+    margin-top: 30px;
+    height: 90vh;
+  }
+
+  .modal__card-container-btn{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+  .modal__card-container-btn button{    
+    margin: 0 auto;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    width: 90%;
+    height: 35px;    
+  }
+  
+}
+
+@media (max-width: 450px){
+  h2{
+    font-size: 21px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 430px){
+  h1{
+    font-size: 28px;
+  } 
+
+  .transactions__text-date{
+    border-left: 1px solid #b4b4b4;
+    border-right: 1px solid #b4b4b4;
+    width: 48%;
+    padding-left: 25px;
+  }
 }
