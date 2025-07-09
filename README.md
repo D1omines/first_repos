@@ -18,4 +18,4 @@
 ## 📦 Запуск:
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/D1omines/first_repos
+   git clone https://github.com/D1omines/finance-tracker-app
