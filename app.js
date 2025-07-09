@@ -25,6 +25,7 @@ form.addEventListener('submit', formEvent)
 document.addEventListener('DOMContentLoaded', Init)
 
 
+
 const typeSelect = document.querySelector('#type')
 const amount = document.querySelector('#amount')
 const category = document.querySelector('#category')
